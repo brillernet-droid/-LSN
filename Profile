@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>刘书宁 | 学术科研与创新创业个人主页</title>
+    <style>
+        :root {
+            --primary-color: #003366; /* 北体大风格深蓝 */
+            --accent-color: #D9534F;   /* 活力红/橙 */
+            --text-color: #333;
+            --bg-light: #f8f9fa;
+            --white: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--bg-light);
+        }
+
+        /* 导航栏 */
+        nav {
+            background: var(--white);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-color);
+            margin-left: 20px;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+
+        /* Hero 区域 */
+        .hero {
+            background: linear-gradient(135deg, var(--primary-color), #00509e);
+            color: var(--white);
+            padding: 80px 5%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        .hero-text {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+        }
+
+        .hero h2 {
+            font-size: 1.5rem;
+            font-weight: 300;
+            margin-bottom: 20px;
+            opacity: 0.9;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin-bottom: 30px;
+            opacity: 0.8;
+        }
+
+        .hero-tags span {
+            display: inline-block;
+            background: rgba(255,255,255,0.2);
+            padding: 5px 15px;
+            border-radius: 20px;
+            margin-right: 10px;
+            margin-bottom: 10px;
+            font-size: 0.9rem;
+        }
+
+        /* 关键数据 Stats */
+        .stats-container {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: -40px;
+            padding: 0 5%;
+            flex-wrap: wrap;
+        }
+
+        .stat-card {
+            background: var(--white);
+            padding: 20px 40px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            text-align: center;
+            min-width: 180px;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: var(--accent-color);
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            color: #666;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* 通用板块样式 */
+        section {
+            padding: 60px 5%;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 40px;
+            color: var(--primary-color);
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 3px;
+            background: var(--accent-color);
+            margin: 10px auto 0;
+        }
+
+        /* 学术科研 */
+        .research-item {
+            background: var(--white);
+            padding: 25px;
+            margin-bottom: 20px;
+            border-left: 5px solid var(--primary-color);
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+
+        .paper-title {
+            font-size: 1.1rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #222;
+        }
+
+        .paper-meta {
+            font-size: 0.9rem;
+            color: #666;
+            margin-bottom: 10px;
+        }
+
+        .tag-sci {
+            background-color: #e3f2fd;
+            color: #0d47a1;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            margin-right: 5px;
+        }
+
+        /* 创业与专利 */
+        .innovation-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .card {
+            background: var(--white);
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card h3 {
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 10px;
+        }
+
+        /* 媒体与证书 */
+        .media-container {
+            display: flex;
+            align-items: center;
+            background: #222;
+            color: #fff;
+            padding: 40px;
+            border-radius: 10px;
+            margin-bottom: 40px;
+        }
+        
+        .media-text h3 {
+            color: var(--accent-color);
+        }
+
+        /* 底部 */
+        footer {
+            background: var(--primary-color);
+            color: var(--white);
+            text-align: center;
+            padding: 30px;
+            margin-top: 40px;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2rem; }
+            .stats-container { flex-direction: column; align-items: center; }
+            .stat-card { width: 100%; margin-bottom: 10px; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">刘书宁 Liu Shuning</div>
+        <div class="nav-links">
+            <a href="#about">简介</a>
+            <a href="#academic">科研成果</a>
+            <a href="#innovation">创新创业</a>
+            <a href="#social">社会工作</a>
+        </div>
+    </nav>
+
+    <section class="hero" id="about">
+        <div class="hero-text">
+            <h1>刘书宁</h1>
+            <h2>北京体育大学 | 运动人体科学学院 | 2023级</h2>
+            <p>科研探索者 / 创业实践者 / 科普工作者。<br>
+               专注于运动生理学、营养补剂及神经科学机制研究。<br>
+               致力于将前沿科研成果转化为实际应用，服务全民健康。</p>
+            <div class="hero-tags">
+                <span>📚 累计发表论文 17 篇</span>
+                <span>🧪 总 IF 18.4</span>
+                <span>💼 科技公司创始人</span>
+                <span>🎤 CGTN 访谈嘉宾</span>
+            </div>
+        </div>
+        </section>
+
+    <div class="stats-container">
+        <div class="stat-card">
+            <span class="stat-number">18.4</span>
+            <span class="stat-label">累计影响因子 (IF)</span>
+        </div>
+        <div class="stat-card">
+            <span class="stat-number">17</span>
+            <span class="stat-label">发表学术论文</span>
+        </div>
+        <div class="stat-card">
+            <span class="stat-number">3</span>
+            <span class="stat-label">国家/实用新型专利</span>
+        </div>
+        <div class="stat-card">
+            <span class="stat-number">740+</span>
+            <span class="stat-label">志愿服务时长 (小时)</span>
+        </div>
+    </div>
+
+    <section id="academic">
+        <h2 class="section-title">学术科研成果</h2>
+        
+        <div class="research-item">
+            <div class="paper-title">Effects of Nutritional Supplements on Endurance Performance and Subjective Perception in Athletes Exercising in the Heat</div>
+            <div class="paper-meta">
+                <span class="tag-sci">SCI Q1/Q2</span>
+                <span class="tag-sci">IF: 5.0</span>
+                发表于 <b>Nutrients</b> (DOI:10.3390/nu17132141) | 系统评价与网状Meta分析
+            </div>
+            <p>研究了在高温环境下，不同营养补剂对运动员耐力表现及主观感知的影响。</p>
+        </div>
+
+        <div class="research-item">
+            <div class="paper-title">The Effect of Short-Term Rhodiola rosea Supplementation on Simulated Game Time, Perceived Fatigue, and Performance in Basketball Players</div>
+            <div class="paper-meta">
+                <span class="tag-sci">SCI</span>
+                <span class="tag-sci">IF: 5.0</span>
+                发表于 <b>Nutrients</b> (DOI:10.3390/nu17233694)
+            </div>
+            <p>探究了短期红景天补充对篮球运动员模拟比赛时间、疲劳感知及运动表现的影响。</p>
+        </div>
+
+        <div class="research-item">
+            <div class="paper-title">Improving of 6 weeks of repeated sprint training on the aerobic and anaerobic power of college-age male rugby players</div>
+            <div class="paper-meta">
+                <span class="tag-sci">SCI</span>
+                <span class="tag-sci">IF: 3.4</span>
+                发表于 <b>Frontiers in Physiology</b>
+            </div>
+            <p>对比研究了6周重复冲刺训练与HIIT对大学生橄榄球运动员有氧及无氧能力的提升效果。</p>
+        </div>
+
+        <div class="research-item">
+            <div class="paper-title">Repositioning Mechanistic Targets in Autism Spectrum Disorder: From Neurodevelopmental Pathology to Exercise-Based Therapeutic Pathways</div>
+            <div class="paper-meta">
+                <span class="tag-sci">Review</span>
+                发表于 <b>IMRT</b> (International Medical Research and Translation)
+            </div>
+            <p>从神经发育病理学角度，重新定位孤独症谱系障碍的机制靶点，并探讨基于运动的治疗通路。</p>
+        </div>
+
+        <p style="text-align: center; color: #666; margin-top: 20px;">
+            * 另有多篇论文被一级学会会议录用及进行口头报告。担任 <i>International Medical Research and Translation</i> 期刊编委。
+        </p>
+    </section>
+
+    <section id="innovation" style="background-color: #fff;">
+        <h2 class="section-title">创新创业与专利</h2>
+        <div class="innovation-grid">
+            <div class="card">
+                <h3>🏢 创业经历</h3>
+                <p><b>北京波卡得体育科技有限公司</b><br>创始人 / 法人代表</p>
+                <p style="margin-top:10px; font-size:0.9rem; color:#666;">
+                    注册资本20万元。带领团队进行体育科技产品的研发与市场化推广。
+                </p>
+            </div>
+            <div class="card">
+                <h3>🏆 核心奖项</h3>
+                <p><b>中国国际大学生创新创业大赛 (2025)</b></p>
+                <p>项目：“环动智康”——国内首创环抱式多点脉冲融合气动自适应肌肉交互筋膜枪</p>
+                <ul style="margin-left: 20px; font-size: 0.9rem; margin-top: 5px;">
+                    <li>北京赛区一等奖 (金奖)</li>
+                    <li>全国三等奖</li>
+                </ul>
+            </div>
+            <div class="card">
+                <h3>📜 知识产权</h3>
+                <ul style="margin-left: 20px; font-size: 0.9rem;">
+                    <li><b>发明专利：</b>一种带有表面肌电信号的检测筋膜枪 (受理中)</li>
+                    <li><b>实用新型：</b>一种磁吸按摩头筋膜枪 (受理中)</li>
+                    <li><b>软著：</b>MyoRhythm精准肌群击打调节系统 V1.0</li>
+                    <li><b>软著：</b>智能肌电监测与筋膜调控一体化平台 V1.0</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section id="social">
+        <h2 class="section-title">社会影响力 & 资质</h2>
+        
+        <div class="media-container">
+            <div class="media-text">
+                <h3>📺 CGTN 访谈嘉宾</h3>
+                <p>作为中国大学生代表，受邀做客中国国际电视台（CGTN）《青春派》节目，向全球观众展现中国体育学子的风采。</p>
+                <p><i>"Sports: A Cultural Bridge Beyond Competition"</i></p>
+            </div>
+        </div>
+
+        <div class="innovation-grid">
+            <div class="card">
+                <h3>🎖️ 裁判与教练资质</h3>
+                <p><b>裁判员：</b>拥有篮球、排球、网球、游泳、自行车等9个项目的二级/三级裁判员证书。</p>
+                <p><b>教练员：</b>国家体育总局体科所认证儿童青少年体适能教练（初级 & 中级）。</p>
+            </div>
+            <div class="card">
+                <h3>🤝 学生工作与志愿服务</h3>
+                <ul style="margin-left: 20px; font-size: 0.9rem;">
+                    <li><b>校艺术团：</b>合唱团声部长 (组织10余次演出)</li>
+                    <li><b>校红十字会：</b>学生分会爱心部部长</li>
+                    <li><b>志愿时长：</b>累计 740.5 小时</li>
+                    <li><b>荣誉：</b>北体大优秀学生干部、优秀志愿者</li>
+                    <li><b>科普：</b>四川省科协认证科普工作者</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 刘书宁 Liu Shuning. All Rights Reserved.</p>
+        <p>Email: [你的邮箱] | Location: Beijing, China</p>
+    </footer>
+
+</body>
+</html>
